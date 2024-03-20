@@ -13,10 +13,10 @@ class Task3:
     assertEquals(Nil(), extractCourses(Cons(Student("s1", 2000), Nil())))
     assertEquals(Nil(), extractCourses(Nil()))
 
-
 class Task4:
+  import u03.lab03tasks.Lab03Tasks.foldLeft
   @Test def testFoldLeftInt(): Unit =
     val lst = Cons(3, Cons(7,Cons(1, Cons(5, Nil()))))
-    assertEquals(16, Lab03Tasks().FoldLeft.foldLeft[Int](lst)(0)(_ + _))
-    assertEquals(-16, Lab03Tasks().FoldLeft.foldLeft[Int](lst)(0)(_ - _))
-    assertEquals(0, Lab03Tasks().FoldLeft.foldLeft[Int](Nil())(0)(_ + _))
+    assertEquals(16, lst.foldLeft(0)(_ + _))
+    assertEquals(-16, foldLeft[Int](lst)(0)(_ - _))
+    assertEquals(0, foldLeft[Int](Nil())(0)(_ + _))
