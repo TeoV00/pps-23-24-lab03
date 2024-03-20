@@ -57,3 +57,10 @@ class Lab03Tasks:
       case _ => Nil()
     }
 
+  // 4
+  object FoldLeft:
+    @tailrec
+    def foldLeft[A](s: Sequence[A])(i: A)(o: (A, A) => A): A =
+      s match
+        case Cons(h, t) => foldLeft(t)(o(i, h))(o)
+        case Nil() => i
