@@ -1,5 +1,9 @@
 package u02
 
+import u03.Sequences.Sequence
+import u03.Sequences.Sequence.{Cons, Nil}
+import u03.Sequences.Sequence.flatMap
+
 object Modules extends App :
 
   // An ADT: type + module
@@ -11,6 +15,11 @@ object Modules extends App :
     def name(p: Person): String = p match
       case Student(n, _) => n
       case Teacher(n, _) => n
+    def extractCourses(p: Sequence[Person]): Sequence[String] =
+      flatMap[Person, String](p) {
+        case Teacher(_, c) => Cons(c, Nil())
+        case _ => Nil()
+      }
 
   println(Person.name(Person.Student("mario", 2015)))
 
