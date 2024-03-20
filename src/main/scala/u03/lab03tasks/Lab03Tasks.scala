@@ -22,10 +22,10 @@ class Lab03Tasks:
     case (Nil(), _) | (_, Nil()) | (Nil(), Nil()) => Nil()
 
   // 1.c
-  def concat[A](l1: Sequence[A], l2: Sequence[A]): Sequence[A] = (l1, l2) match
-    case (Nil(), _) => l2
-    case (Cons(h, Nil()), _) => Cons(h, l2)
-    case (Cons(h, l1b), l2) => Cons(h, concat(l1b, l2))
+  def concat[A](l1: Sequence[A], l2: Sequence[A]): Sequence[A] = l1 match
+    case Nil() => l2
+    case Cons(h, Nil()) => Cons(h, l2)
+    case Cons(h, l1b) => Cons(h, concat(l1b, l2))
 
   // 1.c
   def flatMap[A, B](l: Sequence[A])(mapper: A => Sequence[B]): Sequence[B] = l match
@@ -60,7 +60,6 @@ class Lab03Tasks:
   // 4
   object FoldLeft:
     @tailrec
-    def foldLeft[A](s: Sequence[A])(i: A)(o: (A, A) => A): A =
-      s match
+    def foldLeft[A](s: Sequence[A])(i: A)(o: (A, A) => A): A = s match
         case Cons(h, t) => foldLeft(t)(o(i, h))(o)
         case Nil() => i
