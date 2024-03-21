@@ -29,10 +29,12 @@ class Task6:
     val s = Stream.iterate(0)(_ + 1)
     assertEquals(Cons(0, Cons(1, Cons(2, Nil()))), Stream.toList(takeWhile(s)(_ < 3)))
 
+class Task7:
   @Test def testFill(): Unit =
     import u03.Streams.Stream.fill
     assertEquals(Cons("a", Cons("a", Cons("a", Nil()))), Stream.toList(fill(3)("a")))
 
+class Task8:
   @Test def testPellNumber(): Unit =
     import u03.lab03tasks.Lab03Tasks.pellStream
     val pell = pellStream(6)
