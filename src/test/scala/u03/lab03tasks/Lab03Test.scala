@@ -4,7 +4,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import u03.Sequences.Sequence.*
 import u03.Streams.Stream.takeWhile
-import u03.lab03tasks.Lab03Tasks.pellRec
 
 class Task3:
   import u02.Modules.Person.*
@@ -17,7 +16,7 @@ class Task3:
 
 class Task4:
   import u03.lab03tasks.Lab03Tasks.foldLeft
-  @Test def testFoldLeftInt(): Unit =
+  @Test def testFoldLeft(): Unit =
     val lst = Cons(3, Cons(7,Cons(1, Cons(5, Nil()))))
     assertEquals(16, lst.foldLeft(0.0)(_ + _), 0.5)
     assertEquals(-16, foldLeft(lst)(0)(_ - _))
@@ -36,5 +35,5 @@ class Task6:
 
   @Test def testPellNumber(): Unit =
     import u03.lab03tasks.Lab03Tasks.pellStream
-    val pell = pellStream(5)
-    assertEquals(Cons(0, Cons(1, Cons(2, Cons(5, Cons(12, Nil()))))), Stream.toList(pell))
+    val pell = pellStream(6)
+    assertEquals(Cons(0, Cons(1, Cons(2, Cons(5, Cons(12, Cons(29, Nil())))))), Stream.toList(pell))
