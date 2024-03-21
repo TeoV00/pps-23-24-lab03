@@ -45,7 +45,7 @@ object Lab03Tasks:
 
     // Task 4
     @tailrec
-    def foldLeft(i: A)(o: (A, A) => A): A = s match
+    def foldLeft[B](i: B)(o: (B, A) => B): B = s match
       case Cons(h, t) => t.foldLeft(o(i, h))(o)
       case Nil() => i
 
