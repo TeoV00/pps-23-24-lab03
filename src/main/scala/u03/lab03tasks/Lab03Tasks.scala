@@ -6,11 +6,12 @@ import u03.Sequences.Sequence.{flatMap, *}
 import u02.Modules.Person
 import u02.Modules.Person.*
 import u03.Streams.Stream
-
 import scala.annotation.tailrec
 
 object Lab03Tasks:
   // Lab 03
+
+  // Task 5 (extension methods)
   extension [A](s: Sequence[A])
     // Task 1
     // 1.a
