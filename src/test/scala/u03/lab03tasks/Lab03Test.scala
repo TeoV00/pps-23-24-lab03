@@ -4,6 +4,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import u03.Sequences.Sequence.*
 import u03.Streams.Stream.takeWhile
+import u03.lab03tasks.Lab03Tasks.pellRec
 
 class Task3:
   import u02.Modules.Person.*
@@ -32,3 +33,8 @@ class Task6:
   @Test def testFill(): Unit =
     import u03.Streams.Stream.fill
     assertEquals(Cons("a", Cons("a", Cons("a", Nil()))), Stream.toList(fill(3)("a")))
+
+  @Test def testPellNumber(): Unit =
+    import u03.lab03tasks.Lab03Tasks.pellStream
+    val pell = pellStream(5)
+    assertEquals(Cons(0, Cons(1, Cons(2, Cons(5, Cons(12, Nil()))))), Stream.toList(pell))
